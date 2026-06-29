@@ -1,0 +1,208 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-chart-7: var(--chart-7);
+  --color-chart-8: var(--chart-8);
+
+  --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter Fallback", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.875rem;
+
+  --background: oklch(0.13 0.012 270);
+  --foreground: oklch(0.97 0.005 270);
+
+  --surface: oklch(0.16 0.014 270);
+  --surface-elevated: oklch(0.19 0.016 270);
+
+  --card: oklch(0.16 0.014 270);
+  --card-foreground: oklch(0.97 0.005 270);
+  --popover: oklch(0.18 0.016 270);
+  --popover-foreground: oklch(0.97 0.005 270);
+
+  /* Mint neon */
+  --primary: oklch(0.82 0.17 165);
+  --primary-foreground: oklch(0.15 0.02 165);
+
+  /* Violet accent */
+  --secondary: oklch(0.65 0.21 295);
+  --secondary-foreground: oklch(0.98 0.005 270);
+
+  --muted: oklch(0.22 0.014 270);
+  --muted-foreground: oklch(0.65 0.015 270);
+
+  --accent: oklch(0.65 0.21 295);
+  --accent-foreground: oklch(0.98 0.005 270);
+
+  --destructive: oklch(0.65 0.22 22);
+  --destructive-foreground: oklch(0.98 0.005 270);
+
+  --success: oklch(0.82 0.17 165);
+  --success-foreground: oklch(0.15 0.02 165);
+
+  --warning: oklch(0.82 0.16 80);
+  --warning-foreground: oklch(0.18 0.02 80);
+
+  --border: oklch(0.27 0.014 270 / 0.6);
+  --input: oklch(0.24 0.014 270);
+  --ring: oklch(0.82 0.17 165 / 0.6);
+
+  --chart-1: oklch(0.82 0.17 165);
+  --chart-2: oklch(0.65 0.21 295);
+  --chart-3: oklch(0.78 0.16 220);
+  --chart-4: oklch(0.78 0.17 50);
+  --chart-5: oklch(0.7 0.2 340);
+  --chart-6: oklch(0.75 0.18 130);
+  --chart-7: oklch(0.7 0.18 25);
+  --chart-8: oklch(0.78 0.14 260);
+
+  /* Gradients & shadows */
+  --gradient-primary: linear-gradient(135deg, oklch(0.82 0.17 165), oklch(0.7 0.18 195));
+  --gradient-accent: linear-gradient(135deg, oklch(0.65 0.21 295), oklch(0.55 0.24 320));
+  --gradient-surface: linear-gradient(180deg, oklch(0.19 0.016 270), oklch(0.15 0.014 270));
+  --gradient-glow-mint: radial-gradient(80% 80% at 30% 20%, oklch(0.82 0.17 165 / 0.18), transparent 70%);
+  --gradient-glow-violet: radial-gradient(80% 80% at 80% 0%, oklch(0.65 0.21 295 / 0.22), transparent 70%);
+
+  --shadow-glow-mint: 0 0 0 1px oklch(0.82 0.17 165 / 0.15), 0 10px 40px -10px oklch(0.82 0.17 165 / 0.35);
+  --shadow-glow-violet: 0 0 0 1px oklch(0.65 0.21 295 / 0.2), 0 10px 40px -10px oklch(0.65 0.21 295 / 0.4);
+  --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.04) inset, 0 8px 30px -12px oklch(0 0 0 / 0.6);
+  --shadow-elevated: 0 1px 0 0 oklch(1 0 0 / 0.06) inset, 0 20px 60px -20px oklch(0 0 0 / 0.7);
+}
+
+.dark {
+  /* same — app is dark-first */
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-image: var(--gradient-glow-mint), var(--gradient-glow-violet);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.3 0.014 270);
+    border-radius: 999px;
+    border: 2px solid var(--color-background);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: oklch(0.4 0.014 270); }
+}
+
+@utility glass-card {
+  background:
+    linear-gradient(180deg, oklch(1 0 0 / 0.03), oklch(1 0 0 / 0)),
+    var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(8px);
+}
+
+@utility glass-elevated {
+  background: var(--gradient-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-elevated);
+}
+
+@utility gradient-mint {
+  background: var(--gradient-primary);
+  color: var(--color-primary-foreground);
+}
+
+@utility gradient-violet {
+  background: var(--gradient-accent);
+  color: var(--color-secondary-foreground);
+}
+
+@utility text-gradient-mint {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-violet {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility ring-mint {
+  box-shadow: var(--shadow-glow-mint);
+}
+
+@utility ring-violet {
+  box-shadow: var(--shadow-glow-violet);
+}
+
+@utility num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum", "ss01";
+}
